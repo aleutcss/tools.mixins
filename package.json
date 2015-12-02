@@ -1,5 +1,5 @@
 {
-  "name": "aleut-mixins",
+  "name": "@aleut/aleut-mixins",
   "version": "0.3.0",
   "description": "aleutcss’ default mixins (based on Harry Roberts inuitcss framework)",
   "main": "_tools.mixins.scss",
