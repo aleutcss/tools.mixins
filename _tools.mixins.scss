@@ -2,7 +2,7 @@
 //    #MIXINS
 //\*------------------------------------*/
 
-// inuitcss has a number of default mixins that the framework, and developers
+// aleutcss has a number of default mixins that the framework, and developers
 // working with it, can make use of.
 
 
@@ -13,7 +13,7 @@
 // single value, e.g.:
 //
 // .foo {
-//     @include inuit-font-size(12px);
+//     @include font-size(12px);
 // }
 //
 // This will generate a rem-based font-size with its pixel fallback, as well as
@@ -25,11 +25,11 @@
 //     line-height: 2;
 // }
 //
-// If you do not want inuitcss to generate you a line-height automatically, you
+// If you do not want css to generate you a line-height automatically, you
 // simply pass in your own as a second paramater:
 //
 // .foo {
-//     @include inuit-font-size(12px, 1.5);
+//     @include font-size(12px, 1.5);
 // }
 //
 // This will yield:
@@ -44,7 +44,7 @@
 // a line-height at all, pass in a second paramater of ‘none’ or ‘false’:
 //
 // .foo {
-//     @include inuit-font-size(12px, none);
+//     @include font-size(12px, none);
 // }
 //
 // This will yield:
@@ -54,22 +54,22 @@
 //     font-size: 0.75rem;
 // }
 
-@mixin inuit-font-size($inuit-font-size, $inuit-line-height: auto) {
-    font-size: $inuit-font-size;
-    font-size: ($inuit-font-size / $font-size) * 1rem;
+@mixin font-size($font-size, $line-height: auto) {
+    font-size: $font-size;
+    font-size: ($font-size / $font-size) * 1rem;
 
-    @if $inuit-line-height == auto {
-        line-height: ceil($inuit-font-size / $line-height) * ($line-height / $inuit-font-size);
+    @if $line-height == auto {
+        line-height: ceil($font-size / $line-height) * ($line-height / $font-size);
     }
 
     @else {
 
-        @if (type-of($inuit-line-height) == number or $inuit-line-height == inherit or $inuit-line-height == normal) {
-            line-height: $inuit-line-height;
+        @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+            line-height: $line-height;
         }
 
-        @elseif ($inuit-line-height != none and $inuit-line-height != false) {
-            @warn "D’oh! ‘#{$inuit-line-height}’ is not a valid value for `line-height`."
+        @elseif ($line-height != none and $line-height != false) {
+            @warn "D’oh! ‘#{$line-height}’ is not a valid value for `line-height`."
         }
 
     }
