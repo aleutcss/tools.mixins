@@ -54,22 +54,22 @@
 //     font-size: 0.75rem;
 // }
 
-@mixin font-size($font-size, $font-size-line-height: auto) {
-    font-size: $font-size;
-    font-size: ($font-size / $font-size) * 1rem;
+@mixin font-size($mixin-font-size, $mixin-line-height: auto) {
+    font-size: $mixin-font-size;
+    font-size: ($mixin-font-size / $font-size) * 1rem;
 
-    @if $font-size-line-height == auto {
-        line-height: ceil($font-size / $line-height) * ($line-height / $font-size);
+    @if $mixin-line-height == auto {
+        line-height: ceil($mixin-font-size / $line-height) * ($line-height / $mixin-font-size);
     }
 
     @else {
 
-        @if (type-of($font-size-line-height) == number or $font-size-line-height == inherit or $font-size-line-height == normal) {
-            line-height: $font-size-line-height;
+        @if (type-of($mixin-line-height) == number or $mixin-line-height == inherit or $mixin-line-height == normal) {
+            line-height: $mixin-line-height;
         }
 
-        @elseif ($font-size-line-height != none and $font-size-line-height != false) {
-            @warn "D’oh! ‘#{$font-size-line-height}’ is not a valid value for `line-height`."
+        @elseif ($mixin-line-height != none and $mixin-line-height != false) {
+            @warn "D’oh! ‘#{$mixin-line-height}’ is not a valid value for `line-height`."
         }
 
     }
